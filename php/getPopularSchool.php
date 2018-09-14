@@ -10,9 +10,9 @@ if(isset($_GET['sch_education_level'])){
 	$sch_education_level = $_GET['sch_education_level'];
 	
 	if ($sch_education_level==""){
-		$query1 = "SELECT s.sch_name,sch_education_level,f.sch_id, avg(fb_rating) as avg_rating,COUNT(*) as comment_count FROM Feedback f, School s where s.sch_id=f.sch_id  GROUP BY sch_id ORDER BY comment_count DESC LIMIT 20 ";
+		$query1 = "SELECT s.sch_name,sch_education_level,f.sch_id, avg(fb_rating) as avg_rating,COUNT(*) as comment_count FROM Feedback f, School s where s.sch_id=f.sch_id  GROUP BY sch_id ORDER BY avg_rating DESC LIMIT 20 ";
 	}else{
-		$query1 = "SELECT s.sch_name,sch_education_level,f.sch_id, avg(fb_rating) as avg_rating,COUNT(*) as comment_count FROM Feedback f, School s where s.sch_id=f.sch_id and sch_education_level='$sch_education_level' GROUP BY sch_id ORDER BY comment_count DESC LIMIT 20 ";
+		$query1 = "SELECT s.sch_name,sch_education_level,f.sch_id, avg(fb_rating) as avg_rating,COUNT(*) as comment_count FROM Feedback f, School s where s.sch_id=f.sch_id and sch_education_level='$sch_education_level' GROUP BY sch_id ORDER BY avg_rating DESC LIMIT 20 ";
 	}
 }
 
