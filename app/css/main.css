@@ -1,0 +1,244 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+body, html {
+	height: 100%;
+}
+
+#logo {
+	top: 0%;
+	position: absolute;
+}
+
+#menuBar {
+	width: 100%;
+	height: 10%;
+	text-align: center;
+	border-bottom: 1px black solid;
+}
+
+.menuBarContent {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#searchContainer {
+	z-index: 1;
+}
+
+#schoolContainer {
+}
+
+#facilityContainer {
+	border-left: 1px black solid;
+	border-right: 1px black solid;
+}
+
+#blackspotContainer {
+}
+
+#search {
+	width: 100%;
+}
+
+#searchResults {
+	position: absolute;
+	background-color: #FAFAFA;
+	display: none;
+}
+
+.searchResult:hover {
+	cursor: pointer;
+	color: #FF8C00;
+}
+
+#schoolGroup, #facilityGroup {
+	vertical-align: middle;
+	text-align: left;
+}
+
+#mainPanel {
+	margin: 0;
+	padding: 0;
+	height: 83%;
+}
+
+#map {
+	height: 100%;
+	background-color: grey;
+}
+
+.glyphicon-remove {
+	position: fixed;
+	color: black;
+	font-size: 20px;
+	top: 5%;
+	right: 26%;
+}
+
+.glyphicon-remove:hover {
+	color: red;
+}
+
+#infoPanel {
+	display: none;
+	position: absolute;
+	height: 90%;
+	width: 50%;
+	left: 25%;
+	top: 5%;
+	
+	background-color: #FAFAFA;
+	z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+	overflow: auto;
+}
+
+#locationIcon {
+	text-align: center;
+}
+
+.locationInfoIcon {
+	width: 5em;
+	height: 5em;
+	vertical-align: middle;
+}
+
+.locationIcon {
+	width: 25%;
+	height: 25%;
+	vertical-align: middle;
+}
+
+#locationDetails {
+	font-size: 1.5em;
+	vertical-align: middle;
+	text-align: center;
+}
+
+#locationAverageRating {
+	padding: 20px;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#locationFeedbackComments > p{
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.feedbackHeader {
+	border-top: 1px black solid;
+	border-bottom: 1px black solid;
+}
+
+.feedbackComment {
+	padding-bottom: 20px;
+}
+
+.feedbackFlag {
+	cursor: pointer;
+}
+
+.feedbackFlag:hover {
+	color: red;
+}
+
+#flagModal {
+	z-index: 3;
+}
+
+#flagConfirm {
+	display:none;
+	position: absolute;
+	top: 40%;
+	left: 35%;
+	width: 30%;
+	text-align: center;
+	font-size: 1.5em;
+	outline: black solid 1px;
+	background-color: #FAFAFA;
+	z-index: 4;
+	padding: 20px;
+}
+
+#flagConfirm > p{
+	padding: 15px;
+}
+
+#paging {
+	text-align: center;
+}
+
+#locationFeedbackSubmission {
+	padding: 20px;
+	text-align: center;
+}
+
+#locationFeedbackSubmission > form > p {
+	font-size: 1.5em;
+}
+
+#locationFeedbackSubmission > p {
+	font-size: 1.5em;
+}
+
+#locationFeedbackSubmission > form > input {
+	margin-top: 10px;
+}
+
+#inputComment { 
+	width: 100%;
+}
+
+p {
+	margin: 0;
+}
+
+#infoCloseBtn {
+	position: absolute;
+	z-index: 3;
+	right: 0;
+}
+
+/* Ratings widget */
+.rate {
+    display: inline-block;
+    border: 0;
+}
+/* Hide radio */
+.rate > input {
+    display: none;
+}
+/* Order correctly by floating highest to the right */
+.rate > label {
+    float: right;
+}
+/* The star of the show */
+.rate > label:before {
+    display: inline-block;
+    font-size: 1.5rem;
+    padding: .3rem .2rem;
+    margin: 0;
+    cursor: pointer;
+    font-family: FontAwesome;
+    content: "\f005 "; /* full star */
+}
+/* Zero stars rating */
+.rate > label:last-child:before {
+    content: "\f006 "; /* empty star outline */
+}
+/* Half star trick */
+.rate .half:before {
+    content: "\f089 "; /* half star no outline */
+    position: absolute;
+    padding-right: 0;
+}
+/* Click + hover color */
+input:checked ~ label, /* color current and previous stars on checked */
+label:hover, label:hover ~ label { color: #73B100;  } /* color previous stars on hover */
+
+/* Hover highlights */
+input:checked + label:hover, input:checked ~ label:hover, /* highlight current and previous stars */
+input:checked ~ label:hover ~ label, /* highlight previous selected stars for new rating */
+label:hover ~ input:checked ~ label /* highlight previous selected stars */ { color: #A6E72D;  }
+

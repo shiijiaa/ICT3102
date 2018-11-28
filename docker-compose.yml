@@ -1,0 +1,38 @@
+version: '3'
+services:
+    mariadb:
+      image: mariadb:10.1
+      volumes:
+          - mariadb:/var/lib/mysql
+      ports:
+          - 3306:3306
+      environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      links:
+        - mariadb:mariadb
+      ports:
+        - 8181:80
+        - 9191:80
+      environment:
+        MYSQL_USERNAME: root
+        MYSQL_ROOT_PASSWORD: ""
+        PMA_HOST: mariadb
+
+    web:
+        build: 
+          context: ./app
+          dockerfile: Dockerfile
+        ports:
+          - 80:80
+        volumes:
+          - ./app:/var/www/html:z
+        links:
+          - mariadb:mariadb
+        depends_on:
+          - mariadb
+        
+volumes:
+    mariadb:
